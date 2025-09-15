@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ಜ್ಞಾನ ಸಂಜೀವಿನಿ - RRB Group D Mock Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    #timer {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏫 ಜ್ಞಾನ ಸಂಜೀವಿನಿ - RRB Group D Mock Test</h1>
+  <div id="timer">⏱️ Time Left: <span id="time">300</span> seconds</div>
+  <form id="quizForm">
+    <div class="question">
+      <p>1) 12 + 8 = ?</p>
+      <label><input type="radio" name="q1" value="18"> 18</label><br>
+      <label><input type="radio" name="q1" value="20"> 20</label><br>
+      <label><input type="radio" name="q1" value="22"> 22</label>
+    </div>
+
+    <div class="question">
+      <p>2) ಭಾರತದಲ್ಲಿ ಗಂಗಾ ನದಿ ಯಾವ ದಿಕ್ಕಿನಲ್ಲಿ ಹರಿಯುತ್ತದೆ?</p>
+      <label><input type="radio" name="q2" value="ಉತ್ತರದಿಂದ ದಕ್ಷಿಣ"> ಉತ್ತರದಿಂದ ದಕ್ಷಿಣ</label><br>
+      <label><input type="radio" name="q2" value="ಪಶ್ಚಿಮದಿಂದ ಪೂರ್ವ"> ಪಶ್ಚಿಮದಿಂದ ಪೂರ್ವ</label><br>
+      <label><input type="radio" name="q2" value="ದಕ್ಷಿಣದಿಂದ ಉತ್ತರ"> ದಕ್ಷಿಣದಿಂದ ಉತ್ತರ</label>
+    </div>
+
+    <div class="question">
+      <p>3) 2025 - 1991 = ?</p>
+      <label><input type="radio" name="q3" value="24"> 24</label><br>
+      <label><input type="radio" name="q3" value="34"> 34</label><br>
+      <label><input type="radio" name="q3" value="36"> 36</label>
+    </div>
+
+    <button type="button" onclick="submitQuiz()">Submit</button>
+  </form>
+
+  <h2 id="result"></h2>
+
+  <script>
+    // Timer countdown
+    let timeLeft = 300;
+    let timer = setInterval(() => {
+      timeLeft--;
+      document.getElementById('time').textContent = timeLeft;
+      if(timeLeft <= 0){
+        clearInterval(timer);
+        submitQuiz();
+      }
+    }, 1000);
+
+    function submitQuiz() {
+      clearInterval(timer);
+      let score = 0;
+
+      let q1 = document.querySelector('input[name="q1"]:checked');
+      if(q1 && q1.value === "20") score++;
+
+      let q2 = document.querySelector('input[name="q2"]:checked');
+      if(q2 && q2.value === "ಪಶ್ಚಿಮದಿಂದ ಪೂರ್ವ") score++;
+
+      let q3 = document.querySelector('input[name="q3"]:checked');
+      if(q3 && q3.value === "34") score++;
+
+      document.getElementById('result').textContent =
+        "✅ ನಿಮ್ಮ ಅಂಕಗಳು: " + score + "/3";
+    }
+  </script>
+</body>
+</html>
